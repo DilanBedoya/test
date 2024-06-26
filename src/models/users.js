@@ -42,7 +42,7 @@ const usersSchema = new Schema({
     confirmarEmail:{
         type:Boolean,
         default:false
-    }
+    },
 },
 {
     timestamps:true
