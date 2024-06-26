@@ -9,19 +9,19 @@ import {
     perfil,
     registro,
     confirmarEmail,
-    listarEntrenadores,
     actualizarPerfil,
     actualizarPassword,
     recuperarPassword,
     comprobarTokenPasword,
     nuevoPassword,
-    detallesAdministrador
-} from "../controllers/administrator_controller.js"
+    listarUsuarios,
+    detallesUsuario
+} from "../controllers/users_controller.js"
 
 router.post('/login',login)
 router.post('/register',registro)
 router.get('/confirmation/:token',confirmarEmail)
-router.get('/administrators',listarEntrenadores)
+router.get('/administrators',listarUsuarios)
 router.post('/recover-password',recuperarPassword)
 router.get('/recover-password/:token',comprobarTokenPasword)
 router.post('/new-password/:token',nuevoPassword)
@@ -29,6 +29,6 @@ router.post('/new-password/:token',nuevoPassword)
 router.get('/perfil',perfil)
 router.put('/administrator/actualizarpassword',actualizarPassword)
 router.put('/administrator/:id',actualizarPerfil)
-router.get('/administrator/:id',detallesAdministrador)
+router.get('/administrator/:id',detallesUsuario)
 
 export default router

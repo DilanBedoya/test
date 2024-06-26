@@ -1,4 +1,4 @@
-import Administrator from "../models/administrator.js";
+import Administrator from "../models/users.js";
 import mongoose from "mongoose";
 
 const login = async (req,res) => {}
@@ -9,9 +9,9 @@ const registro = async(req,res) => {}
 
 const confirmarEmail = async (req,res) => {}
 
-const listarEntrenadores = (req,res) => {}
+const listarUsuarios = (req,res) => {}
 
-const detallesAdministrador = (req,res) => {}
+const detallesUsuario = (req,res) => {}
 
 const actualizarPerfil = async (req,res) => {}
 
@@ -28,11 +28,11 @@ export{
     perfil,
     registro,
     confirmarEmail,
-    listarEntrenadores,
+    listarUsuarios,
     actualizarPerfil,
     actualizarPassword,
     recuperarPassword,
     comprobarTokenPasword,
     nuevoPassword,
-    detallesAdministrador
+    detallesUsuario
 }

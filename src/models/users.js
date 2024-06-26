@@ -1,7 +1,7 @@
 import {Schema, model} from 'mongoose'
 import bcrypt from 'bcryptjs'
 
-const administratorSchema = new Schema({
+const usersSchema = new Schema({
     name:{
         type: String,
         require:true,
@@ -50,20 +50,20 @@ const administratorSchema = new Schema({
 )
 
 
-administratorSchema.methods.encrypPassword = async function(password){
+usersSchema.methods.encrypPassword = async function(password){
     const salt = await bcrypt.genSalt(10)
     const passwordEncryp = await bcrypt.hash(password,salt)
     return passwordEncryp
 }
 
-administratorSchema.methods.matchPassword = async function(password){
+usersSchema.methods.matchPassword = async function(password){
     const response = await bcrypt.compare(password,this.password)
     return response
 }
 
-administratorSchema.methods.crearToken = function(){
+usersSchema.methods.crearToken = function(){
     const tokenGenerado = this.token = Math.random().toString(36).slice(2)
     return tokenGenerado
 }
 
-export default model('Administrator',administratorSchema)
+export default model('users',usersSchema)
