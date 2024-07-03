@@ -118,9 +118,23 @@ const listaruserss = (req, res) => {
 
 }
 
-const listarUsuarios = (req, res) => { }
+const listarUsuarios = (req, res) => { 
 
-const detallesUsuario = (req, res) => { }
+
+}
+
+const detallesUsuario = async (req, res) => {
+
+    const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).json({ msg: `Lo sentimos, debe ser un id válido` });
+  const userBDD = await users.findById(id).select("-password");
+  if (!userBDD)
+    return res
+      .status(404)
+      .json({ msg: `Lo sentimos, no existe el veterinario ${id}` });
+  res.status(200).json({ msg: userBDD });
+ }
 
 const actualizarPerfil = async (req,res)=>{
 

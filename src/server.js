@@ -12,6 +12,8 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/SourceCraft',routerAdministrator)
+app.use('/',(req,res)=>{res.send("server ok")})
+
 
 app.use((req,res)=>res.status(404).send("Endpoint no encontrado - 404"))
 

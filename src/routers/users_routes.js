@@ -29,6 +29,6 @@ router.post('/new-password/:token',nuevoPassword)
 router.get('/perfil',verificarAutenticacion,perfil)
 router.put('/administrator/actualizarpassword',verificarAutenticacion, actualizarPassword)
 router.put('/administrator/:id',verificarAutenticacion, actualizarPerfil)
-router.get('/administrator/:id',verificarAutenticacion,detallesUsuario)
+router.get('/administrator/:id',detallesUsuario)
 
 export default router
